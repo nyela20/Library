@@ -1,0 +1,143 @@
+/* --- Variables et Styles de Base --- */
+:root {
+    --ul-blue-dark: #003366;
+    --ul-blue-light: #0056a0;
+    --ul-gold: #ffcc00;
+    --background-grey: #f4f7f9;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-layout {
+    min-height: 100vh;
+    background-color: var(--background-grey);
+    padding: 30px;
+}
+
+.dashboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.main-heading {
+    color: var(--ul-blue-dark);
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.sub-heading {
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--ul-grey);
+    padding-bottom: 15px;
+}
+
+/* --- Grille des Statistiques (Stat Cards) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    opacity: 0.9;
+}
+
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 5px 0 10px;
+    color: white;
+}
+
+.stat-card small {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Couleurs spécifiques aux cartes (inspirées des thèmes) */
+.blue { background-color: var(--ul-blue-light); }
+.gold { background-color: var(--ul-gold); color: var(--ul-blue-dark) !important; }
+.green { background-color: #28a745; }
+.red { background-color: #dc3545; }
+.purple { background-color: #6f42c1; }
+.teal { background-color: #20c997; }
+
+
+/* --- Actions Rapides (Quick Actions) --- */
+.quick-actions h2 {
+    color: var(--ul-blue-dark);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.btn-action {
+    background-color: var(--ul-blue-light);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin-right: 15px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-action:hover {
+    background-color: var(--ul-blue-dark);
+    transform: translateY(-2px);
+}
+
+.btn-action.admin-btn {
+    background-color: #343a40; /* Bouton gris foncé pour l'admin */
+}
+
+.btn-action.admin-btn:hover {
+    background-color: #495057;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .dashboard-layout {
+        padding: 15px;
+    }
+    .dashboard-content {
+        padding: 20px;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .main-heading {
+        font-size: 2rem;
+    }
+    .btn-action {
+        width: 100%;
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+}
