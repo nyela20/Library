@@ -1,5 +1,5 @@
 {
-  "name": "librarium",
+  "name": "my-project",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -22,10 +22,15 @@
   "dependencies": {
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
-    "@nestjs/mapped-types": "*",
+    "@nestjs/jwt": "^11.0.0",
+    "@nestjs/mongoose": "^11.0.3",
     "@nestjs/platform-express": "^11.0.1",
+    "mongoose": "^8.19.0",
+    "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "react": "^18.x.x",
+   "react-dom": "^18.x.x"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
