@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="700e87ba-d29d-46e3-a93f-2494f77531e1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/my-project/bu-management-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/bu-management-frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-project/bu-management-frontend/src/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/bu-management-frontend/src/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-project/bu-management-frontend/src/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/bu-management-frontend/src/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-project/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-project/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-project/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-project/src/auth/auth.service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="34LrPctGBCFEJ1DzBz2CNhR3JjK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="700e87ba-d29d-46e3-a93f-2494f77531e1" name="Changes" comment="" />
+      <created>1761003670304</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761003670304</updated>
+    </task>
+    <servers />
+  </component>
+</project>
