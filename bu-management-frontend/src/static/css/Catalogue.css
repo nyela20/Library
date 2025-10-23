@@ -1,0 +1,229 @@
+/* --- Variables Couleurs Modernes --- */
+:root {
+    --primary-dark: #003366;
+    --primary-light: #0056a0;
+    --secondary-gold: #ffcc00;
+    --background-grey: #f5f7fa;
+    --text-dark: #333333;
+    --available-green: #28a745;
+    --reserved-orange: #ff9800;
+    --borrowed-red: #dc3545;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.08);
+    --card-hover-shadow: rgba(0, 0, 0, 0.15);
+}
+
+/* --- Body & Page --- */
+.catalogue-page {
+    min-height: 100vh;
+    background-color: var(--background-grey);
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Header --- */
+.catalogue-header {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, var(--primary-light), var(--primary-dark));
+    padding: 20px 30px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.catalogue-title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.btn-back {
+    background: white;
+    color: var(--primary-dark);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-back:hover {
+    background: var(--primary-light);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* --- Barre de Recherche et Catégories --- */
+.search-controls-bar {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.search-input,
+.category-select {
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus,
+.category-select:focus {
+    outline: none;
+    border-color: var(--primary-light);
+    box-shadow: 0 0 10px rgba(0, 86, 160, 0.2);
+}
+
+/* --- Liste des Livres --- */
+.book-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.book-card {
+    background-color: var(--card-bg);
+    padding: 25px 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px var(--card-hover-shadow);
+}
+
+.book-details {
+    margin-bottom: 15px;
+}
+
+.book-title {
+    color: var(--primary-dark);
+    font-size: 1.3rem;
+    margin: 0 0 5px;
+    font-weight: 700;
+}
+
+.book-author {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.book-category {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    margin-top: 5px;
+}
+
+/* Couleurs Catégories */
+.science { background-color: #007bff; }
+.informatique { background-color: #6f42c1; }
+.histoire { background-color: #28a745; }
+.droit { background-color: #fd7e14; }
+
+/* --- Actions & Statut --- */
+.book-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.book-status {
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+}
+
+.available { background-color: var(--available-green); }
+.réservé { background-color: var(--reserved-orange); }
+.emprunté { background-color: var(--borrowed-red); }
+
+/* Boutons Emprunter / Réserver */
+.btn-action-book {
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-action-book.available {
+    background-color: var(--primary-light);
+}
+.btn-action-book.available:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-action-book.reserve {
+    background-color: var(--reserved-orange);
+}
+.btn-action-book.reserve:hover {
+    background-color: #e07b00;
+    transform: translateY(-2px);
+}
+
+.btn-action-book[disabled] {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- Message Aucun Résultat / Loading --- */
+.no-results {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+    padding: 50px 0;
+}
+
+/* --- Modal --- */
+.modal-backdrop {
+    backdrop-filter: blur(2px);
+}
+
+.modal-content {
+    border-radius: 20px;
+    padding: 25px;
+    background-color: var(--card-bg);
+    box-shadow: 0 12px 25px var(--card-hover-shadow);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .catalogue-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+    .catalogue-title { margin-bottom: 15px; }
+    .search-controls-bar { flex-direction: column; gap: 15px; }
+    .book-card { flex-direction: column; }
+    .book-actions { flex-direction: column; gap: 10px; width: 100%; }
+}

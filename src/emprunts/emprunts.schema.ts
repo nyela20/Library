@@ -4,10 +4,10 @@ import { Document, Types } from 'mongoose';
 @Schema()
 export class Emprunt extends Document {
   @Prop({ type: Types.ObjectId, ref: 'Book', required: true })
-  idLivre: string;
+  idLivre: Types.ObjectId;
 
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
-  idEmprunte: string;
+  idEmprunte: Types.ObjectId;
 
   @Prop({ default: Date.now })
   dateEmprunt: Date;

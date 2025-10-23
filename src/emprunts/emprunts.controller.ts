@@ -29,6 +29,12 @@ export class EmpruntsController {
     return this.empruntsService.returnBook(id);
   }
 
+  // récupérer les emprunts d'un utilisateur
+  @Get('user/:userId')
+  async findByUser(@Param('userId') userId: string) {
+    return this.empruntsService.findByUser(userId);
+  }
+
   // Supprimer un emprunt
   @Delete(':id')
   async delete(@Param('id') id: string) {

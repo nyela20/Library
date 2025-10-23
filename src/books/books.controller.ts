@@ -1,8 +1,11 @@
-import { Controller, Delete, Get, Param, HttpException, Body, HttpStatus, Put } from '@nestjs/common';
+import { Controller, UseGuards, Delete, Get, Param, HttpException, Body, HttpStatus, Put } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { Book } from './books.schema';
+import { RolesGuard } from '../auth/roles.guard';
+import { Roles } from '../auth/roles.decorator';
 
 @Controller('books') // endpoint API = /books
+@UseGuards(RolesGuard)
 export class BooksController {
   constructor(private readonly booksService: BooksService) {}
 
@@ -13,16 +16,18 @@ export class BooksController {
     return this.booksService.findAllWithStatus();
   }
 
-@Put(':id')
-async update(@Param('id') id: string, @Body() updateData: Partial<Book>) {
-  const updatedBook = await this.booksService.updateBook(id, updateData);
-  if (!updatedBook) {
-    throw new HttpException('Impossible de modifier le livre', HttpStatus.BAD_REQUEST);
+  @Put(':id')
+  @Roles('personnel')
+  async update(@Param('id') id: string, @Body() updateData: Partial<Book>) {
+    const updatedBook = await this.booksService.updateBook(id, updateData);
+    if (!updatedBook) {
+      throw new HttpException('Impossible de modifier le livre', HttpStatus.BAD_REQUEST);
+    }
+    return updatedBook;
   }
-  return updatedBook;
-}
 
  @Delete(':id')
+ @Roles('personnel')
   async remove(@Param('id') id: string) {
     const result = await this.booksService.remove(id);
     if (!result) {
@@ -31,21 +36,4 @@ async update(@Param('id') id: string, @Body() updateData: Partial<Book>) {
     return { message: 'Livre supprimé avec succès' };
   }
 }
-
-
-
-
-/*import { Controller, Get } from '@nestjs/common';
-import { BooksService } from './books.service';
-
-@Controller('books') // URL de base : /books
-export class BooksController {
-  constructor(private readonly booksService: BooksService) {}
-
-  @Get() // GET /books
-  async getAllBooks() {
-    return this.booksService.findAll();
-  }
-}*/
-
 

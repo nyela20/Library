@@ -1,0 +1,105 @@
+/* --- Reprise des styles admin globaux --- */
+@import './AdminLoans.css';
+
+/* Wrapper table */
+.book-table-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+
+.book-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.book-table thead th {
+    background-color: var(--ul-blue-dark);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: sticky;
+    top: 0;
+}
+
+.book-table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+    color: var(--text-dark);
+    vertical-align: middle;
+}
+
+.book-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.book-title-cell strong {
+    color: var(--ul-blue-dark);
+}
+
+/* Status badges */
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.status-badge.available {
+    background-color: var(--success-green);
+    color: white;
+}
+
+.status-badge.zero {
+    background-color: var(--warning-orange);
+    color: var(--text-dark);
+}
+
+/* Buttons */
+.btn-action-icon {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-action-icon.edit {
+    background-color: var(--ul-blue-light);
+    color: white;
+}
+
+.btn-action-icon.edit:hover {
+    background-color: var(--ul-blue-dark);
+}
+
+.btn-back {
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--ul-blue-light);
+    color: var(--ul-blue-light);
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: var(--ul-blue-light);
+    color: white;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px !important;
+    font-style: italic;
+    color: #6c757d;
+}

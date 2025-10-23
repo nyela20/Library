@@ -19,17 +19,19 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from '../user/user.schema';
-import { JwtModule } from '@nestjs/jwt'; // ✅ bien importé
+import { JwtModule } from '@nestjs/jwt'; 
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     JwtModule.register({
-      secret: 'SECRET_KEY',   // clé secrète pour JWT
+      secret: 'SECRET_KEY',
       signOptions: { expiresIn: '1h' },
     }),
   ],
-  providers: [AuthService],
   controllers: [AuthController],
+  providers: [AuthService],
+  exports: [JwtModule, AuthService], // <-- Export du JwtModule
 })
 export class AuthModule {}
+
