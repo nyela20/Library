@@ -192,7 +192,9 @@ export default function Dashboard() {
                       <h3>{book.titre || 'Titre inconnu'}</h3>
                       <p>Auteur : {book.auteur || 'Inconnu'}</p>
                       {modalType === 'borrow' && item.dateRetourPrevu && (
-                        <p>Retour prévu : {new Date(item.dateRetourPrevu).toLocaleDateString()}</p>
+                        <p style={{ color: new Date(item.dateRetourPrevu) < new Date() ? 'red' : 'black' }}>
+                          Retour prévu : {new Date(item.dateRetourPrevu).toLocaleDateString()}
+                        </p>                      
                       )}
                       <p>Résumé : {book.resume || 'Aucun résumé disponible.'}</p>
                     </div>

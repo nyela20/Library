@@ -245,126 +245,152 @@
         margin-right: 0;
     }
 }
+/* === MODAL ÉLÉGANT ET CENTRÉ === */
 
-/* --- Modal Backdrop --- */
 .modal-backdrop {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px); /* effet verre dépoli */
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding: 40px 20px;
-    overflow-y: auto;
+    align-items: center;
+    padding: 20px;
+    overflow: auto;
     z-index: 9999;
-}
-
-/* --- Modal Content --- */
-.modal-content {
-    background-color: #fff;
-    border-radius: 12px;
-    max-width: 900px;
+  }
+  
+  /* Contenu du modal */
+  .modal-content {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
     width: 100%;
-    padding: 25px 30px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-    animation: fadeIn 0.3s ease;
-}
-
-/* --- Animation fade-in --- */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- Bouton de fermeture --- */
-.back-btn {
-    background-color: #6c757d;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.back-btn:hover {
-    background-color: #5a6268;
-}
-
-/* --- Liste de livres dans le modal --- */
-.book-card-detail {
-    display: flex;
-    gap: 20px;
-    background-color: #f8f9fa;
+    max-width: 800px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto; /* scroll interne vertical */
+    overflow-x: hidden; /* pas de scroll horizontal */
+    padding: 24px 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    animation: fadeInUp 0.35s ease;
+    direction: ltr; /* force le scroll à droite */
+    scrollbar-gutter: stable both-edges; /* garde la scrollbar à droite proprement */
+  }
+  
+  /* Animation d'apparition douce */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* --- Scrollbar stylisée (Chrome, Edge, Safari) --- */
+  .modal-content::-webkit-scrollbar {
+    width: 10px;
+  }
+  .modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
     border-radius: 10px;
-    padding: 15px 20px;
-    margin-bottom: 20px;
+  }
+  .modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #74b9ff, #0984e3);
+    border-radius: 10px;
+  }
+  .modal-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #5aa0f2, #086fcb);
+  }
+  
+  /* --- Bouton Fermer --- */
+  .modal-close {
+    position: sticky;
+    top: 0;
+    right: 0;
+    float: right;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 50%;
+    color: #333;
+    font-size: 1.1rem;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s, transform 0.1s;
+  }
+  .modal-close:hover {
+    background: #e2e8f0;
+    transform: scale(1.05);
+  }
+  
+  /* --- Cartes dans le modal --- */
+  .book-card-detail {
+    display: flex;
+    gap: 18px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
     align-items: flex-start;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.book-card-detail:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-/* --- Couverture --- */
-.book-cover {
-    width: 150px;
+  }
+  .book-card-detail:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* --- Couverture plus harmonieuse --- */
+  .book-cover {
+    width: 110px;
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
     flex-shrink: 0;
-}
-
-/* --- Informations livres --- */
-.book-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.book-info h3 {
-    margin: 0 0 8px 0;
-    font-size: 1.4rem;
-    color: #343a40;
-}
-
-.book-info p {
+  }
+  
+  /* --- Infos du livre --- */
+  .book-info h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    color: #1e293b;
+  }
+  .book-info p {
     margin: 4px 0;
-    color: #495057;
+    color: #475569;
     font-size: 0.95rem;
-}
-
-/* --- Pour date retour mis en valeur --- */
-.book-info p:nth-child(3) {
-    font-weight: 600;
-    color: #007bff;
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
+  }
+  
+  /* --- Responsive --- */
+  @media (max-width: 640px) {
     .modal-content {
-        padding: 20px;
+      padding: 16px;
+      max-width: 95%;
+      max-height: calc(100vh - 60px);
     }
     .book-card-detail {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+      flex-direction: column;
+      text-align: center;
     }
     .book-cover {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 10px;
+      width: 90px;
+      height: 120px;
     }
-    .book-info p:nth-child(3) {
-        color: #007bff;
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
     }
-}
+  }
+  
 
 /* === Fullscreen Loading Screen === */
 .loading-viewport {

@@ -11,6 +11,7 @@
     overflow-x: auto;
 }
 
+
 .book-table {
     width: 100%;
     border-collapse: separate;
@@ -103,3 +104,30 @@
     font-style: italic;
     color: #6c757d;
 }
+
+/* 🔥 Met en évidence les lignes en retard */
+.late-row {
+    background-color: #ffe5e5;
+    animation: pulseLate 1.5s infinite alternate;
+  }
+  
+  @keyframes pulseLate {
+    from {
+      background-color: #ffe5e5;
+    }
+    to {
+      background-color: #ffd1d1;
+    }
+  }
+  
+  /* Badge rouge “en retard” à côté du titre */
+  .late-badge {
+    background-color: #dc2626;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.4rem;
+    padding: 2px 6px;
+    margin-left: 8px;
+  }
+  
