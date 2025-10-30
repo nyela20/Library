@@ -1,0 +1,385 @@
+/* --- Variables et Styles de Base --- */
+:root {
+    --ul-blue-dark: #003366;
+    --ul-blue-light: #0056a0;
+    --ul-gold: #ffcc00;
+    --background-grey: #f4f7f9;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-layout {
+    min-height: 100vh;
+    background-color: var(--background-grey);
+    padding: 30px;
+}
+/* --- Style Spécifique pour l'En-tête et Déconnexion --- */
+
+/* Positionne l'en-tête pour le bouton de déconnexion */
+.dashboard-header {
+    /* Mettre le bouton en haut à droite */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end; /* Aligne le contenu (le bouton) à droite */
+    padding: 0 0 15px 0; /* Un peu d'espace en bas */
+}
+
+/* Style du bouton de déconnexion */
+.btn-logout {
+    background-color: #dc3545; /* Rouge pour "danger" / déconnexion */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px; /* Bords arrondis */
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-logout:hover {
+    background-color: #c82333; /* Rouge plus foncé au survol */
+    transform: translateY(-1px);
+}
+.dashboard-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.main-heading {
+    color: var(--ul-blue-dark);
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.sub-heading {
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--ul-grey);
+    padding-bottom: 15px;
+}
+
+/* --- Grille des Statistiques (Stat Cards) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    opacity: 0.9;
+}
+
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 5px 0 10px;
+    color: white;
+}
+
+.stat-card small {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Couleurs spécifiques aux cartes (inspirées des thèmes) */
+.blue { background-color: var(--ul-blue-light); }
+.gold { background-color: var(--ul-gold); color: var(--ul-blue-dark) !important; }
+.green { background-color: #28a745; }
+.red { background-color: #dc3545; }
+.purple { background-color: #6f42c1; }
+.teal { background-color: #20c997; }
+
+
+/* --- Actions Rapides (Quick Actions) --- */
+.quick-actions h2 {
+    color: var(--ul-blue-dark);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.btn-action {
+    background-color: var(--ul-blue-light);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin-right: 15px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-action:hover {
+    background-color: var(--ul-blue-dark);
+    transform: translateY(-2px);
+}
+
+.btn-action.admin-btn {
+    background-color: #343a40; /* Bouton gris foncé pour l'admin */
+}
+
+.btn-action.admin-btn:hover {
+    background-color: #495057;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .dashboard-layout {
+        padding: 15px;
+    }
+    .dashboard-content {
+        padding: 20px;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .main-heading {
+        font-size: 2rem;
+    }
+    .btn-action {
+        width: 100%;
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+}
+
+/* --- Styles Spécifiques à la Gestion des Utilisateurs --- */
+
+/* Conteneur du tableau */
+.user-list-container {
+    overflow-x: auto; /* Permet un défilement horizontal sur petits écrans */
+    margin-top: 30px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+/* En-tête du tableau */
+.user-table thead th {
+    background-color: var(--ul-blue-dark);
+    color: white;
+    padding: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Corps du tableau (lignes) */
+.user-table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.user-table tbody tr:hover {
+    background-color: var(--background-grey); /* Couleur de fond au survol */
+}
+
+/* Styles pour les rôles et statuts */
+.role-membre {
+    font-weight: 700;
+    color: var(--ul-blue-light);
+}
+
+.role-personnel {
+    font-weight: 700;
+    color: #495057; /* Gris foncé */
+    background-color: #e9ecef;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.status-actif {
+    color: #28a745; /* Vert */
+    font-weight: 600;
+}
+
+.status-inactif {
+    color: #dc3545; /* Rouge */
+    font-weight: 600;
+}
+
+/* Boutons d'action dans le tableau (petits) */
+.user-table .btn-action {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    border-radius: 4px;
+    box-shadow: none; /* Retirer l'ombre des petits boutons */
+}
+
+.btn-role-toggle {
+    background-color: var(--ul-gold);
+    color: var(--ul-blue-dark);
+}
+.btn-role-toggle:hover {
+    background-color: #fdd835;
+    transform: none;
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Rouge pour la suppression */
+}
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: none;
+}
+
+/* Style pour le bouton de retour */
+.back-btn {
+    background-color: #6c757d;
+    margin-bottom: 20px;
+}
+.back-btn:hover {
+    background-color: #5a6268;
+}
+
+
+/* ======================================= */
+/* Styles Spécifiques pour la PredictionTestPage */
+/* ======================================= */
+
+.prediction-page {
+    /* Assurez-vous d'avoir de l'espace autour du contenu principal */
+    padding: 30px;
+}
+
+.prediction-form {
+    background-color: #f8f9fa; /* Arrière-plan légèrement gris pour le formulaire */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 600px; /* Limite la largeur du formulaire */
+    margin: 30px auto; /* Centre le formulaire */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; /* La label prend toute la largeur */
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #343a40; /* Texte foncé */
+}
+
+.prediction-form input[type="number"],
+.prediction-form select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box; /* S'assure que padding n'augmente pas la taille totale */
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.prediction-form input[type="number"]:focus,
+.prediction-form select:focus {
+    border-color: #007bff; /* Bordure bleue au focus */
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Style du bouton "Obtenir la Prédiction" */
+.prediction-btn {
+    width: 100%; /* Le bouton prend toute la largeur du formulaire */
+    background-color: #6f42c1; /* Violet pour la ML (comme défini précédemment) */
+    color: white;
+    border: none;
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-weight: 700;
+}
+
+.prediction-btn:hover:not(:disabled) {
+    background-color: #5a359d;
+}
+
+.prediction-btn:disabled {
+    background-color: #b0a3c9;
+    cursor: not-allowed;
+}
+
+
+/* Styles pour prediction */
+
+
+.prediction-result-box {
+    margin-top: 40px;
+    padding: 25px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.prediction-success {
+    background-color: #e9f7ef; 
+    border: 1px solid #d4edda;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.prediction-success h3 {
+    color: #28a745; 
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.prediction-success strong {
+    font-size: 1.8rem; 
+    color: #6f42c1; 
+}
+
+.prediction-detail {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.error-message {
+    background-color: #f8d7da; 
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+}

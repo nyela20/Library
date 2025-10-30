@@ -1,0 +1,234 @@
+/* --- Variables Reprises --- */
+:root {
+    --ul-blue-dark: #003366;
+    --ul-blue-light: #0056a0;
+    --ul-gold: #ffcc00;
+    --background-grey: #f4f7f9;
+    --text-dark: #333333;
+    --success-green: #28a745;
+    --warning-orange: #ffc107;
+    --danger-red: #dc3545;
+    --admin-purple: #6f42c1;
+}
+
+.admin-page-container {
+    min-height: 100vh;
+    background-color: var(--background-grey);
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-header {
+    max-width: 1300px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--ul-gold);
+    padding-bottom: 15px;
+}
+
+.admin-title {
+    color: var(--ul-blue-dark);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 15px;
+}
+
+/* Boutons de navigation/action */
+.btn-back, .btn-add {
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-back {
+    background: none;
+    border: 1px solid var(--ul-blue-light);
+    color: var(--ul-blue-light);
+}
+
+.btn-back:hover {
+    background-color: var(--ul-blue-light);
+    color: white;
+}
+
+.btn-add {
+    background-color: var(--admin-purple);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 10px rgba(111, 66, 193, 0.3);
+}
+
+.btn-add:hover {
+    background-color: #5d38a0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(111, 66, 193, 0.4);
+}
+
+/* --- Barre de Recherche --- */
+.admin-search-bar {
+    max-width: 1300px;
+    margin: 0 auto 25px;
+}
+
+.admin-search-input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.admin-search-input:focus {
+    outline: none;
+    border-color: var(--ul-blue-light);
+    box-shadow: 0 0 0 3px rgba(0, 86, 160, 0.1);
+}
+
+/* --- Tableau de Livres --- */
+.book-table-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow-x: auto; /* Permet le défilement horizontal sur mobile */
+}
+
+.book-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.book-table thead th {
+    background-color: var(--ul-blue-dark);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: sticky;
+    top: 0;
+}
+
+.book-table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+    color: var(--text-dark);
+    vertical-align: middle;
+}
+
+.book-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Coins arrondis pour l'en-tête */
+.book-table thead tr th:first-child { border-top-left-radius: 12px; }
+.book-table thead tr th:last-child { border-top-right-radius: 12px; }
+
+/* Cellules spécifiques */
+.book-title-cell strong {
+    color: var(--ul-blue-dark);
+    display: block;
+    margin-bottom: 2px;
+}
+.book-title-cell small {
+    color: #6c757d;
+}
+
+/* Badges de statut */
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+.status-badge.available {
+    background-color: var(--success-green);
+    color: white;
+}
+.status-badge.zero {
+    background-color: var(--warning-orange);
+    color: var(--text-dark);
+}
+
+/* Tags de catégorie (réutilisation des couleurs du catalogue) */
+.tag-category {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: white;
+}
+.science { background-color: #007bff; }
+.informatique { background-color: #6f42c1; }
+.histoire { background-color: #28a745; }
+.droit { background-color: #fd7e14; }
+
+
+/* Boutons d'action dans le tableau */
+.btn-action-icon {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-right: 5px;
+}
+
+.btn-action-icon.edit {
+    background-color: #007bff;
+    color: white;
+}
+.btn-action-icon.edit:hover {
+    background-color: #0056b3;
+}
+
+.btn-action-icon.delete {
+    background-color: var(--danger-red);
+    color: white;
+}
+.btn-action-icon.delete:hover {
+    background-color: #c82333;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px !important;
+    font-style: italic;
+    color: #6c757d;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .admin-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .admin-title {
+        font-size: 1.5rem;
+    }
+    .btn-back, .btn-add {
+        flex-grow: 1;
+        text-align: center;
+    }
+    /* Le défilement horizontal sera géré par .book-table-wrapper { overflow-x: auto; } */
+    /* Les styles des colonnes peuvent devenir compacts */
+}
