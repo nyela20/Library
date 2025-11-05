@@ -8,7 +8,7 @@ import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
-export class RolesGuard implements CanActivate {   // 👈 doit être exactement "export class RolesGuard"
+export class RolesGuard implements CanActivate {  
   constructor(private reflector: Reflector, private jwtService: JwtService) {}
 
   canActivate(context: ExecutionContext): boolean {

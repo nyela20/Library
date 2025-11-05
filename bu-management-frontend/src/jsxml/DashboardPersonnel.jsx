@@ -160,13 +160,13 @@ export default function DashboardPersonnel() {
             <small>Nécessite une relance urgente — cliquer pour voir</small>
           </div>
 
-          <div className="stat-card purple" onClick={() => navigate('/admin/gestion-livres')}>
+          <div className="stat-card purple">
             <h3>Stock Total</h3>
             <p className="stat-number">{stockDispo} / {stockTotal}</p>
             <small>Copies disponibles / totales</small>
           </div>
 
-          <div className="stat-card teal" onClick={() => navigate('/admin/predictions')}>
+          <div className="stat-card teal">
             <h3>Prédictions ML</h3>
             <p className="stat-number">Voir l'Analyse</p>
             <small>Tendances d'emprunt pour le mois prochain</small>

@@ -10,7 +10,7 @@ import { ReservationsModule } from './reservations/reservations.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://rimhamida23:MCa6uNWy988!ARW@cluster0.1awozsr.mongodb.net/libraryDB'),
+    MongooseModule.forRoot('mongodb+srv://nyelaRal:Nyela2025Mongo@cluster0.1awozsr.mongodb.net/library?retryWrites=true&w=majority'),
     UserModule,
     AuthModule,
     BooksModule,

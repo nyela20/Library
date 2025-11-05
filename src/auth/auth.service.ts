@@ -11,6 +11,12 @@ export class AuthService {
     @InjectModel(User.name) private userModel: Model<User>,
     private readonly jwtService: JwtService,
   ) {}
+
+
+async registerTOW(nom: string , email:string, motdepasse: string){
+  const userExist = await this.userModel.findOne()
+}
+
 async login(body: { email: string; motdepasse: string }) {
   console.log('Requête login reçue :', body);
 
@@ -18,11 +24,12 @@ async login(body: { email: string; motdepasse: string }) {
   console.log('Utilisateur trouvé :', user);
 
   if (!user) {
-    throw new UnauthorizedException('Email non trouvé'); // Email incorrect
+    throw new UnauthorizedException('Email non trouvé');
   }
 
-  if (user.motdepasse !== body.motdepasse) {
-    throw new UnauthorizedException('Mot de passe incorrect'); //  Mot de passe incorrect
+  const isPasswordValid = await bcrypt.compare(body.motdepasse, user.motdepasse);
+  if (!isPasswordValid) {
+    throw new UnauthorizedException('Mot de passe incorrect');
   }
 
   const payload = { email: user.email, id: user._id, role: user.role };
@@ -30,9 +37,7 @@ async login(body: { email: string; motdepasse: string }) {
 
   return { access_token, user };
 }
-async registerTOW(nom: string , email:string, motdepasse: string){
-  const userExist = await this.userModel.findOne()
-}
+
 async register(nom: string, email: string, motdepasse: string) {
   const userExist = await this.userModel.findOne({ email });
   if (userExist) throw new BadRequestException('Cet e-mail est déjà utilisé');

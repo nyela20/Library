@@ -21,6 +21,9 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
+    "fastapi": "latest",
+    "uvicorn": "latest",
+    "joblib": "latest",
     "@nestjs/core": "^11.0.1",
     "@nestjs/jwt": "^11.0.0",
     "@nestjs/mongoose": "^11.0.3",
@@ -31,7 +34,9 @@
     "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
-    "@supabase/supabase-js": "^2.29.0"
+    "@supabase/supabase-js": "^2.29.0",
+    "@nestjs/platform-socket.io": "^11.0.0",
+    "socket.io": "^4.7.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
